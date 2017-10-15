@@ -19,6 +19,7 @@ contract BadAuction is AuctionInterface {
 			is_locked = true;
 			if (!highestBidder.send(highestBid)) {
 				msg.sender.send(msg.value);
+				return false;
 			}
 
 			highestBidder = msg.sender;
